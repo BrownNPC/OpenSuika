@@ -7,8 +7,8 @@ int main(void)
 {
     // Initialization
     //--------------------------------------------------------------------------------------
-    const int screenWidth = 800;
-    const int screenHeight = 450;
+    const int screenWidth = 480;
+    const int screenHeight = 270;
 
     InitWindow(screenWidth, screenHeight, "raylib [core] example - basic window");
 
