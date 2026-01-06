@@ -1,16 +1,16 @@
-#include <scene.h>
 #include "raylib.h"
+#include <engine/scene.h>
 
-static struct {
-  int Dih;
+static struct { //
 } self;
 
-static void Load(Context cfg) { self.Dih = 67; }
-static bool Update(Context cfg) {
+static void Load(Context ctx) { //
+}
+static bool Update(Context ctx) {
   ClearBackground(RED);
   return false; //
 }
-static SceneID Unload(Context cfg) {
+static SceneID Unload(Context ctx) {
   return SceneID_Start; //
 }
 

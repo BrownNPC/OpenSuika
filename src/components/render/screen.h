@@ -2,7 +2,7 @@
 
 #include "raylib.h"
 #include "raymath.h"
-#include <stdlib.h>
+#include <components/memory/arena.h>
 
 // Screen struct
 typedef struct Screen {
@@ -26,8 +26,8 @@ static inline float minf(float a, float b) { return a < b ? a : b; }
 
 // Allocate and create a new Screen. Caller should later call Screen_Unload and
 // free().
-Screen *Screen_New(Vector2 resolution) {
-  Screen *s = (Screen *)malloc(sizeof(Screen));
+Screen *Screen_New(Arena *a, Vector2 resolution) {
+  Screen *s = (Screen *)Arena_Alloc(a, sizeof(Screen));
   if (!s)
     return NULL;
 
@@ -48,7 +48,6 @@ void Screen_Unload(Screen *s) {
   if (!s)
     return;
   UnloadRenderTexture(s->renderTexture);
-  free(s);
 }
 
 // Begin drawing to this screen's render texture

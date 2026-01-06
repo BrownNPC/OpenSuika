@@ -2,8 +2,8 @@
 // 1. add extern Scene Init<SceneName>Scene();
 // 2. map SceneID to Initializer
 #pragma once
+#include <engine/types.h>
 
-#include "types.h"
 enum SceneID {
   SceneID_Start,
   SceneID_Game,
@@ -17,7 +17,7 @@ static Scene Scenes[TotalScenes];
 extern Scene InitStartScene();
 extern Scene InitGameScene();
 extern Scene InitBlankScene();
-  //Initialize Scenes map
+// Initialize Scenes map
 static void SceneInitAll() {
   Scenes[SceneID_Start] = InitStartScene();
   Scenes[SceneID_Game] = InitGameScene();

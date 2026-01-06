@@ -3,6 +3,7 @@
 #include "raylib.h"
 #include "scene.h"
 #include "types.h"
+#include <components/memory/arena.h>
 
 // Run the engine
 void static inline engineRun(Config cfg) {
@@ -13,6 +14,7 @@ void static inline engineRun(Config cfg) {
   // Context is passed to Scenes
   auto ctx = (Context){
       .cfg = cfg,
+      .arena = NewArena(2 * 1024),
   };
 
   // --------------BEGIN--------------

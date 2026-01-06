@@ -1,22 +1,31 @@
-#include <scene.h>
 #include "raylib.h"
+#include <components/memory/arena.h>
+#include <components/render/screen.h>
+#include <engine/scene.h>
 
 static struct {
-  int Dih;
+  Screen *screen;
 } self;
 
-static void Load(Context cfg) { self.Dih = 67; }
-static bool Update(Context cfg) {
+static void Load(Context ctx) {
+  self.screen = Screen_New(ctx.arena, ctx.cfg.VirtualResolution);
+}
+static bool Update(Context ctx) {
+  Screen_BeginDrawing(self.screen);
   ClearBackground(GREEN);
-  DrawText(TextFormat("%d", self.Dih), 0, 0, 21, GREEN);
-  if (IsKeyPressed(KEY_A)){
+
+  Screen_EndDrawing(self.screen);
+
+  if (IsKeyPressed(KEY_A)) {
     return true;
   }
-  
-  return false; //
+
+  return false;
 }
-static SceneID Unload(Context cfg) {
-  return SceneID_Game; //
+static SceneID Unload(Context ctx) {
+  Screen_Unload(self.screen);
+  Arena_Reset(ctx.arena);
+  return SceneID_Game;
 }
 
 Scene InitStartScene() {

@@ -1,14 +1,17 @@
 #pragma once
 
 // Passed to engineRun
+#include "raylib.h"
+#include <components/memory/arena.h>
 typedef struct {
-  int VirtualWidth, VirtualHeight;
+  Vector2 VirtualResolution;
   char *WindowTitle;
 } Config;
 
 // Passed to every function
 typedef struct {
   Config cfg;
+  Arena *arena;
 } Context;
 
 typedef enum SceneID SceneID;

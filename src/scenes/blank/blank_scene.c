@@ -1,15 +1,15 @@
-#include <engine.h>
+#include <engine/engine.h>
 
-static struct {
-  int Dih;
+static struct { //
 } self;
 
-static void Load(Context cfg) { self.Dih = 67; }
-static bool Update(Context cfg) {
-  return false; //
+static void Load(Context ctx) { //
 }
-static SceneID Unload(Context cfg) {
-  return SceneID_Start; //
+static bool Update(Context ctx) { //
+  return false;
+}
+static SceneID Unload(Context ctx) { //
+  return SceneID_Start;
 }
 
 Scene InitBlankScene() {
