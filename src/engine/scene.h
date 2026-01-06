@@ -1,7 +1,10 @@
 #pragma once
 #include "engine.h"
+
+
+
 typedef enum {
-  sceneStart,
+  SceneId_Start,
 } SceneID;
 
 typedef struct Scene Scene;
@@ -14,5 +17,4 @@ struct Scene {
   SceneID (*Unload)(Config cfg);
 };
 
-// Scene manager
-void changeScene(Scene *newScene);
+Scene InitStartScene();

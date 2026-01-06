@@ -1,3 +1,4 @@
+#pragma once
 // Make clangd happy
 #include "engine/engine.h"
 #include "engine/scene.h"
