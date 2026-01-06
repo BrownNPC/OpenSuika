@@ -1,20 +1,20 @@
+// ADD A NEW SCENE:
+// 1. add extern Scene Init<SceneName>Scene();
+// 2. map SceneID to Initializer
 #pragma once
-#include "engine.h"
 
-
-
-typedef enum {
-  SceneId_Start,
-} SceneID;
-
-typedef struct Scene Scene;
-struct Scene {
-  // called once when scene is loaded
-  void (*Load)(Config cfg);
-  // called every frame (unloads if return true)
-  bool (*Update)(Config cfg);
-  // called once when scene is unloaded
-  SceneID (*Unload)(Config cfg);
+#include "types.h"
+enum SceneID {
+  SceneID_Start,
+  TotalScenes,
 };
 
-Scene InitStartScene();
+static Scene Scenes[TotalScenes];
+
+// Initializers are in their respective C files
+extern Scene InitStartScene();
+
+static void SceneInitAll() {
+  Scenes[SceneID_Start] = InitStartScene();
+  //
+}

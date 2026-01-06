@@ -3,7 +3,7 @@
 
 static void Load(Config cfg) {}
 static bool Update(Config cfg) { return false; }
-static SceneID Unload(Config cfg) { return SceneId_Start; }
+static SceneID Unload(Config cfg) { return SceneID_Start; }
 
 Scene InitStartScene() {
   Scene s;

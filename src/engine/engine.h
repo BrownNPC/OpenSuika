@@ -1,10 +1,14 @@
 #pragma once
 
-#include <stc/cstr.h>
+#include "raylib.h"
+#include "scene.h"
+#include "types.h"
 
-typedef struct {
-  int VirtualWidth, VirtualHeight;
-  cstr WindowTitle;
-} Config;
+void static inline engineRun(Config cfg) {
+  auto ActiveSceneId = SceneID_Start;
+  auto ActiveScene = Scenes[ActiveSceneId];
 
-void static inline engineRun(Config cfg) {}
+  // --------------BEGIN--------------
+  SetConfigFlags(FLAG_WINDOW_RESIZABLE);
+  InitWindow(0, 0, cfg.WindowTitle);
+}
