@@ -25,9 +25,12 @@ FetchContent_MakeAvailable(raylib stc)
 
 
 file(GLOB_RECURSE SRC CONFIGURE_DEPENDS "src/*.c" "src/*.h" )
-
-
 add_executable(${PROJECT_NAME} ${SRC})
+target_include_directories(${PROJECT_NAME} SYSTEM PRIVATE
+  src/engine
+  src/components
+)
+
 
 # Link libraries
 target_link_libraries(${PROJECT_NAME} PRIVATE raylib)

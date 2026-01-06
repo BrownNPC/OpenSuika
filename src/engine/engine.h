@@ -19,6 +19,7 @@ void static inline engineRun(Config cfg) {
   SetConfigFlags(FLAG_WINDOW_RESIZABLE);
   InitWindow(0, 0, cfg.WindowTitle);
   InitAudioDevice();
+  SetExitKey(KEY_NUM_LOCK);
 
   ActiveScene.Load(ctx);
 

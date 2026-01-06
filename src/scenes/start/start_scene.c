@@ -1,4 +1,4 @@
-#include "../engine/scene.h"
+#include <scene.h>
 #include "raylib.h"
 
 static struct {

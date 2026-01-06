@@ -1,4 +1,5 @@
-#include "../engine/scene.h"
+#include <scene.h>
+#include "raylib.h"
 
 static struct {
   int Dih;
@@ -6,13 +7,14 @@ static struct {
 
 static void Load(Context cfg) { self.Dih = 67; }
 static bool Update(Context cfg) {
+  ClearBackground(RED);
   return false; //
 }
 static SceneID Unload(Context cfg) {
   return SceneID_Start; //
 }
 
-Scene InitBlankScene() {
+Scene InitGameScene() {
   Scene s;
   s.Load = Load;
   s.Update = Update;
