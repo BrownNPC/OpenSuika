@@ -16,9 +16,9 @@ typedef enum SceneID SceneID;
 typedef struct Scene Scene;
 struct Scene {
   // called once when scene is loaded
-  void (*Load)(Config cfg);
+  void (*Load)(Context ctx);
   // called every frame (unloads if return true)
-  bool (*Update)(Config cfg);
+  bool (*Update)(Context ctx);
   // called once when scene is unloaded
-  SceneID (*Unload)(Config cfg);
+  SceneID (*Unload)(Context ctx);
 };
