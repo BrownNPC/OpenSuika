@@ -1,12 +1,15 @@
 cmake_minimum_required(VERSION 3.25)
 project(suika C)
+include(FetchContent)
 
 set(CMAKE_C_STANDARD 23)
 set(CMAKE_C_STANDARD_REQUIRED ON)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+set(CMAKE_BUILD_TYPE Release)
+Set(FETCHCONTENT_QUIET FALSE)
 
 # Dependencies
-include(FetchContent)
+
 FetchContent_Declare(
   raylib
   URL https://github.com/raysan5/raylib/archive/refs/tags/5.5.tar.gz
@@ -21,8 +24,9 @@ FetchContent_Declare(
 FetchContent_MakeAvailable(raylib stc)
 
 
-# Sources
-file(GLOB SRC src/*.c src/*.h)
+file(GLOB_RECURSE SRC CONFIGURE_DEPENDS "src/*.c" "src/*.h" )
+
+
 add_executable(${PROJECT_NAME} ${SRC})
 
 # Link libraries
